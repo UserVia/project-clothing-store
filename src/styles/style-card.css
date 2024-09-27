@@ -1,0 +1,40 @@
+.card{
+    box-shadow: 0 0 10px 2px #f0f0f0;
+    border:none;
+    width:300px;
+    height: 74vh;
+    padding:10px;
+
+}
+
+.container-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-img{
+    width: 100px;
+}
+
+.container-modal-img img{
+    width: 200px;
+}
+.card-img-top{
+    width: 100%;
+}
+
+.modal-body{
+    position: 'absolute';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52vw;
+    background-color: white;
+    border: 1px solid #a7a7a7;
+    box-shadow: 24;
+    padding: 12px
+}
+
+.card-body .card-text{
+    color: #5E17EB;
+}
