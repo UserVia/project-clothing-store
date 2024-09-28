@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-export const Card = ({ item }) => {
+export const Card = ({ item, handleAgregar, handleEliminar }) => {
 
     /*Que aparezca el modal */
     const [open, setOpen] = useState(false);
@@ -15,12 +15,13 @@ export const Card = ({ item }) => {
     /*Agregar producto */
     const [agregar, setAgregar] = useState(false);
     const agregarCantidad = () => {
+        handleAgregar()
         setAgregar(true);
     }
     const disminuirCantidad = () => {
+        handleEliminar();
         setAgregar(false);
     }
-
 
     return (
         <>
@@ -34,9 +35,9 @@ export const Card = ({ item }) => {
                         <p className="mb-0 fs-6">Por Tribu Thendy</p>
                         <p className="card-text fs-5"> <b>$ {item.price}</b></p>
                         {
-                            agregar ? <button className='btn btn-danger fw-bold fs-6 m-1 '
-                                onClick={disminuirCantidad}>Quitar</button> :
-                                <button className='btn btn-primary fw-bold fs-6 m-1'
+                            agregar ? <button type="button" className='btn btn-danger fw-bold fs-6 m-1'
+                                onClick={disminuirCantidad}>Quitar</button>
+                                : <button type="button" className='btn btn-primary fw-bold fs-6 m-1'
                                     onClick={agregarCantidad}>Añadir</button>
                         }
                     </div>
@@ -46,8 +47,7 @@ export const Card = ({ item }) => {
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
+                    aria-describedby="modal-modal-description">
                     <Box className="modal-body">
                         <Typography id="modal-modal-title" sx={{ m: 2, textAlign: 'center', fontWeight: 'bold' }}>
                             Information

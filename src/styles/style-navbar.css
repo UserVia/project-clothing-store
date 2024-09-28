@@ -7,3 +7,11 @@
 .navbar-brand img{
     height: 34px;
 }
+.navbar-toggler{
+    box-shadow: none !important;
+    border:none;
+}
+
+.nav-item.carrito{
+    color:white
+}
