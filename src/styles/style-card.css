@@ -1,19 +1,20 @@
 .card{
-    box-shadow: 0 0 10px 2px #f0f0f0;
-    border:none;
+   /* box-shadow: 0 0 10px 2px #fafafa;*/
+    border:1px solid #ebebeb;
     width:300px;
-    height: 74vh;
+    height: 65vh;
     padding:10px;
-
 }
 
 .container-img{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 90px;
 }
 .card-img{
-    width: 100px;
+    width: 100%;
+    margin-top:10px
 }
 
 .container-modal-img img{

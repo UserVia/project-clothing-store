@@ -1,8 +1,10 @@
 
-export const todoReducer = (initialState = [], action={}) => {
+export const todoReducer = (initialState = [], action = {}) => {
     switch (action.type) {
+
         case 'Agregar Compra':
             return [...initialState, action.payload]
+
         case 'Aumentar Cantidad':
             return initialState.map(item => {
                 const cant = item.cantidad + 1;
@@ -11,6 +13,7 @@ export const todoReducer = (initialState = [], action={}) => {
                 }
                 return item
             })
+
         case 'Disminuir Cantidad':
             return initialState.map(item => {
                 const cant = item.cantidad - 1;
@@ -19,8 +22,10 @@ export const todoReducer = (initialState = [], action={}) => {
                 }
                 return item
             })
-        case 'Eliminar Cantidad':
+
+        case 'Eliminar Compra':
             return initialState.filter(compra => compra.id !== action.payload)
+
         default:
             return initialState
     }

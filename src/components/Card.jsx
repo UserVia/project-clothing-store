@@ -20,13 +20,14 @@ export const Card = ({ item, handleAgregar, handleEliminar }) => {
     }
     const disminuirCantidad = () => {
         handleEliminar();
+        console.log(item.id)
         setAgregar(false);
     }
 
     return (
         <>
             <div className="card d-flex justify-content-center position-relative mb-4">
-                <div className="flex-direction-column">
+                <div className="d-flex flex-column align-items-center">
                     <div className="container-img">
                         <img src={item.image} className="card-img" alt={item.image} />
                     </div>
@@ -35,14 +36,15 @@ export const Card = ({ item, handleAgregar, handleEliminar }) => {
                         <p className="mb-0 fs-6">Por Tribu Thendy</p>
                         <p className="card-text fs-5"> <b>$ {item.price}</b></p>
                         {
-                            agregar ? <button type="button" className='btn btn-danger fw-bold fs-6 m-1'
-                                onClick={disminuirCantidad}>Quitar</button>
-                                : <button type="button" className='btn btn-primary fw-bold fs-6 m-1'
-                                    onClick={agregarCantidad}>Añadir</button>
+                            agregar ? <button type="button" className='btn btn-danger fs-6 m-1'
+                                onClick={disminuirCantidad}>QUITAR</button>
+                                : <button type="button" className='btn btn-primary fs-6 m-1'
+                                    onClick={agregarCantidad}><i class="bi bi-cart2"></i> AÑADIR</button>
                         }
+                        <Button onClick={handleOpen} sx={{ backgroundColor: '#3c3c3c', color: 'white', outlineColor: 'blue' }}>Información</Button>
                     </div>
                 </div>
-                <Button onClick={handleOpen}>Más información</Button>
+
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -50,12 +52,12 @@ export const Card = ({ item, handleAgregar, handleEliminar }) => {
                     aria-describedby="modal-modal-description">
                     <Box className="modal-body">
                         <Typography id="modal-modal-title" sx={{ m: 2, textAlign: 'center', fontWeight: 'bold' }}>
-                            Information
+                            {item.title}
                         </Typography>
                         <Box className="container-modal-img" sx={{ textAlign: 'center' }}>
                             <img src={item.image} className="card-img-top" alt={item.image} />
                         </Box>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <Typography id="modal-modal-description" sx={{ mt: 2, fontSize:'14px' }}>
                             {item.description}
                         </Typography>
                     </Box>

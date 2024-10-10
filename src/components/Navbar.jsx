@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { CarritoContext } from '../context/CarritoContext'
 
 export const Navbar = () => {
-    const {listaCompras} =useContext(CarritoContext)
+    const { listaCompras } = useContext(CarritoContext)
     return (
         <>
             <nav className="navbar navbar-expand-lg position-sticky top-0 z-2">
@@ -21,18 +21,21 @@ export const Navbar = () => {
                     <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
                         <Link className="navbar-brand d-flex justify-content-center" to="/"><img src={logo} alt="logo-principal" /></Link>
                         <ul className="navbar-nav align-items-center justify-content-around">
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">My Order</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">My Account</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">Sign in</a>
-                            </li>
+                            <NavLink className={`nav-item nav-link ${({isActive})=>{isActive ? 'active':''}}`} to="/electronics">
+                                Electronics
+                            </NavLink>
+                            <NavLink className={`nav-item nav-link ${({isActive})=>{isActive ? 'active':''}}`} to="/jewelery">
+                                Jewelery
+                            </NavLink>
+                            <NavLink className={`nav-item nav-link ${({isActive})=>{isActive ? 'active':''}}`} to="/men-clothing">
+                                Men's clothing
+                            </NavLink>
+                            <NavLink className={`nav-item nav-link ${({isActive})=>{isActive ? 'active':''}}`} to="/women-clothing">
+                                Womens's clothing
+                            </NavLink>
                             <NavLink className="nav-item carrito" to="/carrito-compras">
                                 <Badge badgeContent={listaCompras.length} color="success">
-                                    <ShoppingCartIcon/>
+                                    <ShoppingCartIcon />
                                 </Badge>
                             </NavLink>
                         </ul>

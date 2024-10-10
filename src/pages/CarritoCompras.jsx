@@ -2,9 +2,7 @@ import React, { useContext } from 'react'
 import { CarritoContext } from '../context/CarritoContext'
 
 export const CarritoCompras = () => {
-  const { listaCompras, disminuirCantidad, aumentarCantidad, eliminarCantidad } = useContext(CarritoContext)
-
-
+  const { listaCompras, disminuirCantidad, aumentarCantidad, eliminarCompra} = useContext(CarritoContext)
   const calcularTotal = () => {
     return listaCompras.reduce((total, item) => total + item.price * item.cantidad, 0).toFixed(2);
   }
@@ -35,7 +33,7 @@ export const CarritoCompras = () => {
                   <button className="btn btn-outline-primary" onClick={() => disminuirCantidad(item.id)}>-</button>
                 </td>
                 <td>
-                  <button type="button" className="btn btn-danger" onClick={() => eliminarCantidad(item.id)}>Eliminar</button>
+                  <button type="button" className="btn btn-danger" onClick={() => eliminarCompra(item.id)}>Eliminar</button>
                 </td>
               </tr>
             ))}

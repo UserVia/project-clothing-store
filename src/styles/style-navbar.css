@@ -12,6 +12,12 @@
     border:none;
 }
 
+.nav-item.nav-link{
+    color:rgb(206, 206, 206)
+}
+.nav-item.nav-link.active{
+    color:white
+}
 .nav-item.carrito{
     color:white
 }

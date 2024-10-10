@@ -29,15 +29,15 @@ export const CarritoProvider = ({ children }) => {
         })
     }
 
-    const eliminarCantidad = (id) => {
+    const eliminarCompra = (id) => {
         dispatch({
-            type:'Eliminar Cantidad',
+            type:'Eliminar Compra',
             payload:id
         })
     }
 
     return (
-        <CarritoContext.Provider value={{listaCompras,agregarCompra,disminuirCantidad,aumentarCantidad,eliminarCantidad}}>
+        <CarritoContext.Provider value={{listaCompras,agregarCompra,disminuirCantidad,aumentarCantidad,eliminarCompra}}>
             {children}
         </CarritoContext.Provider>
     )

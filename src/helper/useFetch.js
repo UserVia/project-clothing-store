@@ -4,20 +4,15 @@ export const useFetch = (valorSeleccionado) => {
   const [productos, setProductos] = useState([])
 
   const datos = async () => {
-    let url="";
-    if(valorSeleccionado=="category/" || valorSeleccionado=="category/All"){
-      url=`https://fakestoreapi.com/products/`;
-    }else{
-      url=`https://fakestoreapi.com/products/${valorSeleccionado}`;
-    }
-    const response = await fetch(url);
+    let url = "https://fakestoreapi.com/products";
+    const response = await fetch(url + valorSeleccionado);
     const data = await response.json();
     setProductos(data);
   }
   useEffect(() => {
-      datos();
+    datos();
   }, [valorSeleccionado])
-  
+
   return {
     productos
   }
